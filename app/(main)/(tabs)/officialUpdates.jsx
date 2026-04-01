@@ -151,7 +151,7 @@ const OfficialUpdatesScreen = () => {
                                         <TouchableOpacity style={styles.button7} onPress={() => alert('Pressed!')}>
                                             <Text style={styles.text18}>{"Urgent"}</Text>
                                         </TouchableOpacity>
-                                        <Image source={require("../../../assets/images/Upgrade.png")} resizeMode={"stretch"} style={styles.image8} />
+                                        {/* <Image source={require("../../../assets/images/Upgrade.png")} resizeMode={"stretch"} style={styles.image8} /> */}
                                     </View>
                                     <View style={styles.view13}>
                                         <Text style={styles.text13}>{"Elevator B Inspection"}</Text>
