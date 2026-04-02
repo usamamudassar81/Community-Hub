@@ -1,16 +1,3 @@
-// import { View, Text } from 'react-native'
-// import React from 'react'
-
-// const Home = () => {
-//   return (
-//     <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
-//       <Text>Home</Text>
-//     </View>
-//   )
-// }
-
-// export default Home
-
 
 import React, { useState } from "react";
 import { View, ScrollView, Text, Image, TouchableOpacity, TextInput, StyleSheet, } from "react-native";
@@ -256,7 +243,7 @@ const styles = StyleSheet.create({
         elevation: 60,
     },
     column2: {
-        paddingTop: 24,
+        paddingTop: 8,
     },
     column3: {
         backgroundColor: "#FFFFFF",
@@ -268,7 +255,7 @@ const styles = StyleSheet.create({
         marginBottom: 16,
     },
     column4: {
-        paddingTop: 24,
+        paddingTop: 6,
         marginLeft: 32,
     },
     column5: {
@@ -370,7 +357,7 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         flex: 1,
-        paddingTop: 40,
+        paddingTop: 30,
         paddingHorizontal: 24,
     },
     scrollView2: {

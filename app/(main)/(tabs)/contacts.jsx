@@ -80,6 +80,7 @@ const ContactsScreen = () => {
                             </Text>
                         </View>
                     </View>
+
                     <LinearGradient
                         start={{ x: 0, y: 0 }}
                         end={{ x: 0, y: 1 }}
@@ -108,6 +109,85 @@ const ContactsScreen = () => {
                             </Text>
                         </View>
                     </LinearGradient>
+                    <View style={styles.column}></View>
+                    <LinearGradient
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 0, y: 1 }}
+                        colors={["#A83836", "#FA746F"]}
+                        style={styles.column3}>
+                        <View style={styles.row}>
+                            <Text style={styles.text3}>
+                                {"QRF"}
+                            </Text>
+                            <View >
+                                <Image
+
+                                    source={require("../../../assets/images/phoneIcon2.png")}
+                                    resizeMode={"stretch"}
+                                    style={styles.image}
+                                />
+                                <Image
+                                    source={require("../../../assets/images/fireIcon.png")}
+                                    resizeMode={"stretch"}
+                                    style={styles.absoluteImage}
+                                />
+                            </View>
+                        </View>
+                        <View style={styles.view3}>
+                            <Text style={styles.text4}>
+                                {"0333-5679476"}
+                            </Text>
+                        </View>
+                    </LinearGradient>
+
+                    <View style={styles.colum}>
+                        <View style={styles.row}>
+                            <Text style={styles.text5}>
+                                {"Fire Fighting Supervisor"}
+                            </Text>
+                            <View >
+                                <Image
+                                    source={require("../../../assets/images/phoneIcon2.png")}
+                                    resizeMode={"stretch"}
+                                    style={styles.image}
+                                />
+                                <Image
+                                    source={require("../../../assets/images/fireIcon.png")}
+                                    resizeMode={"stretch"}
+                                    style={styles.absoluteImage2}
+                                />
+                            </View>
+                        </View>
+                        <View style={styles.view3}>
+                            <Text style={styles.text4}>
+                                {"0301-2332885"}
+                            </Text>
+                        </View>
+                    </View>
+                    <View style={styles.column4}>
+                        <View style={styles.row}>
+                            <Text style={styles.text5}>
+                                {"Fire Brigade"}
+                            </Text>
+                            <View >
+                                <Image
+                                    source={require("../../../assets/images/phoneIcon2.png")}
+                                    resizeMode={"stretch"}
+                                    style={styles.image}
+                                />
+                                <Image
+                                    source={require("../../../assets/images/fireIcon.png")}
+                                    resizeMode={"stretch"}
+                                    style={styles.absoluteImage2}
+                                />
+                            </View>
+                        </View>
+                        <View style={styles.view3}>
+                            <Text style={styles.text4}>
+                                {"051-3570053"}
+                            </Text>
+                        </View>
+                    </View>
                 </View>
                 <ScrollView
                     horizontal
@@ -395,6 +475,23 @@ const styles = StyleSheet.create({
         shadowRadius: 6,
         elevation: 6,
     },
+
+    colum: {
+        backgroundColor: "#deed3aff",
+        borderRadius: 20,
+        paddingBottom: 16,
+        marginBottom: 16,
+        shadowColor: "#0000001A",
+        shadowOpacity: 0.1,
+        shadowOffset: {
+            width: 0,
+            height: 4
+        },
+        shadowRadius: 6,
+        elevation: 6,
+
+    },
+
     column5: {
         borderRadius: 20,
         paddingBottom: 16,
@@ -580,7 +677,7 @@ const styles = StyleSheet.create({
     },
     text4: {
         color: "#FFFFFF",
-        fontSize: 24,
+        fontSize: 10,
         fontWeight: "bold",
     },
     text5: {
