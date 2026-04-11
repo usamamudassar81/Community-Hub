@@ -7,34 +7,21 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import HeaderTopAppBar from "../../components/header";
 const shuttleData = {
     "Route A": [
-        { id: 1, time: "07:15 AM", stop: "Lilly A-Main Gate", terminal: "Uptown Terminal", status: "active" },
-        { id: 2, time: "07:30 AM", stop: "Main-Lilly A", terminal: "Uptown Terminal", status: "scheduled" },
-        { id: 3, time: "08:00 AM", stop: "Lilly A-Main Gate", terminal: "Uptown Terminal", status: "scheduled" },
-        { id: 4, time: "08:30 AM", stop: "Main-Lilly A", terminal: "Uptown Terminal", status: "terminal" },
-        { id: 5, time: "09:00 AM", stop: "Lilly A-Main Gate", terminal: "Uptown Terminal", status: "terminal" },
-        { id: 6, time: "09:30 AM", stop: "Main-Lilly A", terminal: "Uptown Terminal", status: "terminal" },
-        { id: 7, time: "10:00 AM", stop: "Lilly A-Main Gate", terminal: "Uptown Terminal", status: "terminal" },
-        { id: 8, time: "10:30 AM", stop: "Main-Lilly A", terminal: "Uptown Terminal", status: "terminal" },
-        { id: 9, time: "11:00 AM", stop: "Lilly A-Main Gate", terminal: "Uptown Terminal", status: "terminal" },
-        { id: 10, time: "11:30 AM", stop: "Main-Lilly A", terminal: "Uptown Terminal", status: "terminal" },
-        { id: 11, time: "12:00 PM", stop: "Lilly A-Main Gate", terminal: "Uptown Terminal", status: "terminal" },
-        { id: 12, time: "12:30 PM", stop: "Main-Lilly A", terminal: "Uptown Terminal", status: "terminal" },
+        { id: 1, time: "07:15 AM", terminal: "07:30 AM", status: "active" },
+        { id: 2, time: "08:00 AM", terminal: "08:30 AM", status: "scheduled" },
+        { id: 4, time: "09:00 AM", terminal: "09:30 AM", status: "terminal" },
+        { id: 5, time: "10:00 AM", terminal: "10:30 AM", status: "terminal" },
+        { id: 6, time: "11:00 AM", terminal: "11:30 AM", status: "terminal" },
+        { id: 7, time: "12:00 PM", terminal: "12:30 PM", status: "terminal" },
+        { id: 8, time: "01:30 PM", terminal: "02:00 PM", status: "terminal" },
+        { id: 9, time: "02:30 PM", terminal: "03:00 PM", status: "terminal" },
+
     ],
     "Route B": [
-        { id: 1, time: "01:30 PM", stop: "Lilly A-Main Gate", terminal: "Downtown Hub", status: "active" },
-        { id: 2, time: "02:00 PM", stop: "Main-Lilly A", terminal: "Downtown Hub", status: "scheduled" },
-        { id: 3, time: "02:30 PM", stop: "Lilly A-Main Gate", terminal: "Downtown Hub", status: "scheduled" },
-        { id: 4, time: "03:00 PM", stop: "Main-Lilly A", terminal: "Downtown Hub", status: "terminal" },
-        { id: 5, time: "03:30 PM", stop: "Lilly A-Main Gate", terminal: "Downtown Hub", status: "terminal" },
-        { id: 6, time: "04:00 PM", stop: "Main-Lilly A", terminal: "Downtown Hub", status: "terminal" },
-        { id: 7, time: "04:30 PM", stop: "Lilly A-Main Gate", terminal: "Downtown Hub", status: "terminal" },
-        { id: 8, time: "05:00 PM", stop: "Main-Lilly A", terminal: "Downtown Hub", status: "terminal" },
-        { id: 9, time: "05:30 PM", stop: "Lilly A-Main Gate", terminal: "Downtown Hub", status: "terminal" },
-        { id: 10, time: "06:00 PM", stop: "Main-Lilly A", terminal: "Downtown Hub", status: "terminal" },
-        { id: 11, time: "06:30 PM", stop: "Lilly A-Main Gate", terminal: "Downtown Hub", status: "terminal" },
-        { id: 12, time: "07:00 PM", stop: "Main-Lilly A", terminal: "Downtown Hub", status: "terminal" },
-        { id: 13, time: "07:30 PM", stop: "Lilly A-Main Gate", terminal: "Downtown Hub", status: "terminal" },
-        { id: 14, time: "08:00 PM", stop: "Main-Lilly A", terminal: "Downtown Hub", status: "terminal" },
+        { id: 1, time: "03:30 PM", terminal: "04:00 PM", status: "active" },
+        { id: 2, time: "04:30 PM", terminal: "05:00 PM", status: "scheduled" },
+        { id: 3, time: "05:30 PM", terminal: "06:00 PM", status: "scheduled" },
+
     ]
 };
 
@@ -84,13 +71,13 @@ const ShuttleServiceScreen = () => {
                         <View style={styles.column3}>
                             <View style={styles.row2}>
                                 <Text style={styles.text5}>
-                                    {"TIME"}
+                                    {"From Lilly A"}
                                 </Text>
-                                <Text style={styles.text5}>
+                                {/* <Text style={styles.text5}>
                                     {"STOP NAME"}
-                                </Text>
+                                </Text> */}
                                 <Text style={styles.text5}>
-                                    {"DIRECTION"}
+                                    {"From Main Gate"}
                                 </Text>
                             </View>
                             <View style={styles.column4}>
@@ -105,16 +92,9 @@ const ShuttleServiceScreen = () => {
                                                         <Text style={styles.text6}>{stop.time}</Text>
                                                     </View>
                                                 </View>
-                                                <View style={styles.colStop}>
-                                                    <Text style={styles.text9}>{stop.stop}</Text>
-                                                </View>
                                                 <View style={styles.colDirection}>
-                                                    <Image
-                                                        source={require("../../../assets/images/UpmoveIcon.png")}
-                                                        resizeMode={"contain"}
-                                                        style={styles.arrowIcon}
-                                                    />
-                                                    <Text style={styles.text2}>{stop.terminal}</Text>
+
+                                                    <Text style={styles.text6}>{stop.terminal}</Text>
                                                 </View>
                                             </View>
                                         );
@@ -577,7 +557,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "#FFFFFF",
         paddingVertical: 20,
-        paddingHorizontal: 16,
+        paddingHorizontal: 20,
+        gap: 95,
         borderBottomWidth: 1,
         borderBottomColor: "#F3F4F6",
     },
@@ -597,11 +578,15 @@ const styles = StyleSheet.create({
         width: 120,
     },
     colDirection: {
-        width: 105,
+        width: 75,
         flexDirection: "row",
         alignItems: "center",
         marginLeft: 20,
-        paddingLeft: 44,
+        paddingLeft: 20,
+        backgroundColor: "#F3E8FF",
+        borderRadius: 8,
+        paddingVertical: 8,
+        paddingHorizontal: 10,
     },
     arrowIcon: {
         width: 12,

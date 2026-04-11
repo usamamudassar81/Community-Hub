@@ -10,8 +10,8 @@ const MoreScreen = () => {
         { title: 'Contacts', icon: 'address-book', route: '/(main)/(tabs)/contacts' },
         { title: 'GYM Timing', icon: 'address-book', route: '/(main)/(tabs)/gymTiming' },
         { title: 'Official Updates', icon: 'bullhorn', route: '/(main)/(tabs)/officialUpdates' },
-        { title: 'Settings', icon: 'cog', route: null },
-        { title: 'Help & Support', icon: 'question-circle', route: null }
+        // { title: 'Settings', icon: 'cog', route: null },
+        { title: 'Help & Support', icon: 'question-circle', route: '/(main)/(tabs)/help' }
     ];
 
     const handlePress = (route) => {

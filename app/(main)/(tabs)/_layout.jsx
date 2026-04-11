@@ -57,6 +57,11 @@ const TabLayout = () => {
                     href: null,
                     headerShown: false,
                 }} />
+            <Tabs.Screen name="help"
+                options={{
+                    href: null,
+                    headerShown: false,
+                }} />
         </Tabs>
     )
 }

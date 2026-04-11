@@ -105,7 +105,7 @@ export default function DashboardScreen(props) {
                 <TouchableOpacity
                     style={styles.row2}
                     activeOpacity={0.9}
-                    onPress={() => router.push("/(main)/(tabs)/officialUpdates")}
+                    onPress={() => alert("Coming Soon!")}
                 >
                     <View style={styles.column5}>
                         <View style={styles.row3}>
@@ -269,6 +269,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 33,
         paddingRight: 50,
+        display: "none",
+        marginTop: 10,
         // marginRight: 50,
 
         marginBottom: 48,
@@ -338,7 +340,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         paddingVertical: 31,
         paddingHorizontal: 32,
-        marginBottom: 16,
+        marginBottom: 45,
         shadowColor: "#0000001A",
         shadowOpacity: 0.1,
         shadowOffset: {
@@ -364,6 +366,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         paddingVertical: 16,
         marginBottom: 16,
+        display: "none",
     },
     text: {
         color: "#2C3436",

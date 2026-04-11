@@ -42,7 +42,7 @@ const WaterTimingScreen = (props) => {
 						/>
 						<View style={styles.column2}>
 							<Text style={styles.text2}>
-								{"Open today 8:00 AM – 9:00 PM & 4:00 PM - 8:00 PM"}
+								{"Open today 8:00 AM – 11:00 AM & 4:00 PM - 8:00 PM"}
 							</Text>
 							<Text style={styles.text3}>
 								{"Standard community distribution\nhours"}
@@ -107,7 +107,7 @@ const WaterTimingScreen = (props) => {
 										</Text>
 									</View>
 									<View style={styles.view13}>
-										<Text style={styles.text11}>
+										<Text style={styles.text7}>
 											{item.time}
 										</Text>
 									</View>
@@ -152,8 +152,11 @@ const WaterTimingScreen = (props) => {
 										source={require("../../../assets/images/maintenance.png")}
 										resizeMode={"stretch"}
 										style={styles.image4}
+										onPress={() => alert("Coming Soon")}
 									/>
-									<Text style={styles.text13}>
+									<Text style={styles.text13}
+										onPress={() => alert("Coming Soon")}
+									>
 										{"Maintenance Notice"}
 									</Text>
 								</View>
@@ -164,12 +167,12 @@ const WaterTimingScreen = (props) => {
 										{"The secondary purification unit will undergo annual\ncalibration this coming Sunday. "}
 									</Text>
 									<View style={styles.row12}>
-										<Text style={styles.text15}>
+										{/* <Text style={styles.text15}>
 											{"interruptions"}
 										</Text>
 										<Text style={styles.text3}>
 											{" are expected for residential lines."}
-										</Text>
+										</Text> */}
 									</View>
 								</View>
 							</View>
@@ -179,11 +182,11 @@ const WaterTimingScreen = (props) => {
 								style={styles.image5}
 							/>
 						</View>
-						<Text style={styles.text16}
+						{/* <Text style={styles.text16}
 							onPress={() => alert("Coming Soon")}
 						>
 							{"Learn More"}
-						</Text >
+						</Text > */}
 					</View>
 					<View style={styles.column8}>
 						<View style={styles.view15}>
@@ -201,7 +204,7 @@ const WaterTimingScreen = (props) => {
 								<View >
 									<View style={styles.view16}>
 										<Text style={styles.text18}>
-											{"Emergency Line"}
+											{"Maintenance Team"}
 										</Text>
 									</View>
 									<View style={styles.view17}>
@@ -211,7 +214,7 @@ const WaterTimingScreen = (props) => {
 									</View>
 								</View>
 							</View>
-							<View style={styles.row14}>
+							{/* <View style={styles.row14}>
 								<Image
 									source={require("../../../assets/images/maintenaceIcon.png")}
 									resizeMode={"stretch"}
@@ -229,7 +232,7 @@ const WaterTimingScreen = (props) => {
 										</Text>
 									</View>
 								</View>
-							</View>
+							</View> */}
 						</View>
 					</View>
 					<View style={styles.row15}>
@@ -373,6 +376,8 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		alignItems: "center",
 		marginBottom: 24,
+		display: "none",
+		// paddingBottom: 10,
 	},
 	row3: {
 		flexDirection: "row",
@@ -448,7 +453,7 @@ const styles = StyleSheet.create({
 	},
 	row13: {
 		flexDirection: "row",
-		marginBottom: 16,
+		marginBottom: 8,
 	},
 	row14: {
 		flexDirection: "row",
@@ -483,6 +488,7 @@ const styles = StyleSheet.create({
 	text3: {
 		color: "#3F3F46",
 		fontSize: 10,
+		paddingBottom: 10,
 	},
 	text4: {
 		color: "#215C45",
@@ -495,15 +501,16 @@ const styles = StyleSheet.create({
 	},
 	text6: {
 		color: "#2C3436",
-		fontSize: 16,
+		fontSize: 12,
 	},
 	text7: {
 		color: "#596063",
-		fontSize: 14,
+		fontSize: 10,
+		fontWeight: "bold",
 	},
 	text8: {
 		color: "#FFFFFF",
-		fontSize: 16,
+		fontSize: 12,
 	},
 	text9: {
 		color: "#FFFFFF",
@@ -512,13 +519,13 @@ const styles = StyleSheet.create({
 	},
 	text10: {
 		color: "#FFFFFF",
-		fontSize: 16,
+		fontSize: 10,
 		fontWeight: "bold",
 		width: 117,
 	},
 	text11: {
 		color: "#596063",
-		fontSize: 16,
+		fontSize: 12,
 	},
 	text12: {
 		color: "#596063",

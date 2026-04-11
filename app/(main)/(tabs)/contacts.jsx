@@ -242,7 +242,7 @@ const ContactsScreen = () => {
                                         </View>
                                         <View style={styles.view6}>
                                             <Text style={styles.text12}>
-                                                {"On-site Guard House"}
+                                                {"Updating Soon"}
                                             </Text>
                                         </View>
                                     </View>
@@ -307,7 +307,7 @@ const ContactsScreen = () => {
                                         </View>
                                         <View style={styles.view7}>
                                             <Text style={styles.text12}>
-                                                {"Routine Repairs & Issues"}
+                                                {"0311-7773997"}
                                             </Text>
                                         </View>
                                     </View>
@@ -333,7 +333,7 @@ const ContactsScreen = () => {
                                         </View>
                                         <View style={styles.view5}>
                                             <Text style={styles.text12}>
-                                                {"Water leaks and flooding"}
+                                                {"0311-7773997"}
                                             </Text>
                                         </View>
                                     </View>
@@ -601,12 +601,14 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 1,
         padding: 16,
+        display: "none",
     },
     row7: {
         flex: 1,
         flexDirection: "row",
         alignItems: "center",
         marginRight: 18,
+        // display: "none",
     },
     row8: {
         flexDirection: "row",
@@ -642,6 +644,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingVertical: 13,
         paddingHorizontal: 16,
+        display: "none",
     },
     row13: {
         flex: 1,

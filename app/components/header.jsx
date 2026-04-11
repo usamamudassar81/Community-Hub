@@ -26,7 +26,7 @@ const HeaderTopAppBar = ({
                     />
                 </View>
 
-                <TouchableOpacity
+                {/* <TouchableOpacity
                     style={styles.avatarContainer}
                     onPress={onProfilePress}
                     activeOpacity={0.7}
@@ -36,7 +36,7 @@ const HeaderTopAppBar = ({
                         style={styles.avatar}
                         resizeMode="cover"
                     />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
         </SafeAreaView>
     );
@@ -50,13 +50,13 @@ const styles = StyleSheet.create({
     },
 
     container: {
-        height: 76,
+        height: 66,
         backgroundColor: "#FEFEFE",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
         paddingHorizontal: 24,
-        paddingTop: 30,
+        paddingTop: 20,
     },
 
     leftContainer: {
