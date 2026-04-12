@@ -1,11 +1,22 @@
 import React from "react";
-import { View, ScrollView, Text, Image, TouchableOpacity, StyleSheet, } from "react-native";
+import { View, ScrollView, Text, Image, TouchableOpacity, StyleSheet, Linking, Alert } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from "react-native-safe-area-context";
 import HeaderTopAppBar from "../../components/header";
 import HospitalMap from "../../../components/HospitalMap";
 
 const ContactsScreen = () => {
+    const makeCall = async (phoneNumber) => {
+        const url = `tel:${phoneNumber}`;
+
+        const supported = await Linking.canOpenURL(url);
+
+        if (supported) {
+            await Linking.openURL(url);
+        } else {
+            Alert.alert('Error', 'Dialer is not supported on this device');
+        }
+    };
     return (
         <SafeAreaView style={styles.container} edges={['bottom', 'left', 'right']}>
             <HeaderTopAppBar
@@ -37,12 +48,14 @@ const ContactsScreen = () => {
                                 {"Fire Department"}
                             </Text>
                             <View >
-                                <Image
+                                <TouchableOpacity onPress={() => makeCall('1122')}>
+                                    <Image
 
-                                    source={require("../../../assets/images/phoneIcon2.png")}
-                                    resizeMode={"stretch"}
-                                    style={styles.image}
-                                />
+                                        source={require("../../../assets/images/phoneIcon2.png")}
+                                        resizeMode={"stretch"}
+                                        style={styles.image}
+                                    />
+                                </TouchableOpacity>
                                 <Image
                                     source={require("../../../assets/images/fireIcon.png")}
                                     resizeMode={"stretch"}
@@ -62,11 +75,13 @@ const ContactsScreen = () => {
                                 {"Medical Emergency"}
                             </Text>
                             <View >
-                                <Image
-                                    source={require("../../../assets/images/phoneIcon2.png")}
-                                    resizeMode={"stretch"}
-                                    style={styles.image}
-                                />
+                                <TouchableOpacity onPress={() => makeCall('0312-5899363')}>
+                                    <Image
+                                        source={require("../../../assets/images/phoneIcon2.png")}
+                                        resizeMode={"stretch"}
+                                        style={styles.image}
+                                    />
+                                </TouchableOpacity>
                                 <Image
                                     source={require("../../../assets/images/medicalIcon.png")}
                                     resizeMode={"stretch"}
@@ -91,11 +106,13 @@ const ContactsScreen = () => {
                                 {"Police Dispatch"}
                             </Text>
                             <View >
-                                <Image
-                                    source={require("../../../assets/images/phoneIcon2.png")}
-                                    resizeMode={"stretch"}
-                                    style={styles.image}
-                                />
+                                <TouchableOpacity onPress={() => makeCall('0311-7773997')}>
+                                    <Image
+                                        source={require("../../../assets/images/phoneIcon2.png")}
+                                        resizeMode={"stretch"}
+                                        style={styles.image}
+                                    />
+                                </TouchableOpacity>
                                 <Image
                                     source={require("../../../assets/images/policeIcon.png")}
                                     resizeMode={"stretch"}
@@ -120,12 +137,14 @@ const ContactsScreen = () => {
                                 {"QRF"}
                             </Text>
                             <View >
-                                <Image
+                                <TouchableOpacity onPress={() => makeCall('0333-5679476')}>
+                                    <Image
 
-                                    source={require("../../../assets/images/phoneIcon2.png")}
-                                    resizeMode={"stretch"}
-                                    style={styles.image}
-                                />
+                                        source={require("../../../assets/images/phoneIcon2.png")}
+                                        resizeMode={"stretch"}
+                                        style={styles.image}
+                                    />
+                                </TouchableOpacity>
                                 <Image
                                     source={require("../../../assets/images/fireIcon.png")}
                                     resizeMode={"stretch"}
@@ -146,11 +165,13 @@ const ContactsScreen = () => {
                                 {"Fire Fighting Supervisor"}
                             </Text>
                             <View >
-                                <Image
-                                    source={require("../../../assets/images/phoneIcon2.png")}
-                                    resizeMode={"stretch"}
-                                    style={styles.image}
-                                />
+                                <TouchableOpacity onPress={() => makeCall('0301-2332885')}>
+                                    <Image
+                                        source={require("../../../assets/images/phoneIcon2.png")}
+                                        resizeMode={"stretch"}
+                                        style={styles.image}
+                                    />
+                                </TouchableOpacity>
                                 <Image
                                     source={require("../../../assets/images/fireIcon.png")}
                                     resizeMode={"stretch"}
@@ -170,11 +191,13 @@ const ContactsScreen = () => {
                                 {"Fire Brigade"}
                             </Text>
                             <View >
-                                <Image
-                                    source={require("../../../assets/images/phoneIcon2.png")}
-                                    resizeMode={"stretch"}
-                                    style={styles.image}
-                                />
+                                <TouchableOpacity onPress={() => makeCall('051-3570053')}>
+                                    <Image
+                                        source={require("../../../assets/images/phoneIcon2.png")}
+                                        resizeMode={"stretch"}
+                                        style={styles.image}
+                                    />
+                                </TouchableOpacity>
                                 <Image
                                     source={require("../../../assets/images/fireIcon.png")}
                                     resizeMode={"stretch"}
@@ -312,11 +335,13 @@ const ContactsScreen = () => {
                                         </View>
                                     </View>
                                 </View>
-                                <Image
-                                    source={require("../../../assets/images/gatePhone.png")}
-                                    resizeMode={"stretch"}
-                                    style={styles.image3}
-                                />
+                                <TouchableOpacity onPress={() => makeCall('0311-7773997')}>
+                                    <Image
+                                        source={require("../../../assets/images/gatePhone.png")}
+                                        resizeMode={"stretch"}
+                                        style={styles.image3}
+                                    />
+                                </TouchableOpacity>
                             </View>
                             <View style={styles.row9}>
                                 <View style={styles.row11}>
@@ -338,11 +363,13 @@ const ContactsScreen = () => {
                                         </View>
                                     </View>
                                 </View>
-                                <Image
-                                    source={require("../../../assets/images/gatePhone.png")}
-                                    resizeMode={"stretch"}
-                                    style={styles.image3}
-                                />
+                                <TouchableOpacity onPress={() => makeCall('0311-7773997')}>
+                                    <Image
+                                        source={require("../../../assets/images/gatePhone.png")}
+                                        resizeMode={"stretch"}
+                                        style={styles.image3}
+                                    />
+                                </TouchableOpacity>
                             </View>
                             <View style={styles.row12}>
                                 <View style={styles.row13}>
