@@ -1,10 +1,10 @@
 
-
 import React, { useState } from "react";
 import { View, ScrollView, Text, TouchableOpacity, Image, StyleSheet, ImageBackground } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import HeaderTopAppBar from "../../components/header";
+
 const shuttleData = {
     "Route A": [
         { id: 1, time: "07:15 AM", terminal: "07:30 AM", status: "active" },
@@ -15,21 +15,37 @@ const shuttleData = {
         { id: 7, time: "12:00 PM", terminal: "12:30 PM", status: "terminal" },
         { id: 8, time: "01:30 PM", terminal: "02:00 PM", status: "terminal" },
         { id: 9, time: "02:30 PM", terminal: "03:00 PM", status: "terminal" },
+        { id: 10, time: "03:30 PM", terminal: "04:00 PM", status: "terminal" },
+        { id: 11, time: "04:30 PM", terminal: "05:00 PM", status: "terminal" },
+        { id: 12, time: "05:15 PM", terminal: "06:00 PM", status: "terminal" },
+        { id: 13, time: "06:00 PM", terminal: "06:00 PM", status: "terminal" },
+        { id: 14, time: "07:30 PM", terminal: "08:00 PM", status: "terminal" },
 
     ],
     "Route B": [
-        { id: 1, time: "03:30 PM", terminal: "04:00 PM", status: "active" },
-        { id: 2, time: "04:30 PM", terminal: "05:00 PM", status: "scheduled" },
-        { id: 3, time: "05:30 PM", terminal: "06:00 PM", status: "scheduled" },
-
+        { id: 1, time: "07:30 PM", terminal: "04:00 PM", status: "active" },
+        { id: 2, time: "08:30 PM", terminal: "05:00 PM", status: "scheduled" },
+        { id: 3, time: "09:30 PM", terminal: "06:00 PM", status: "scheduled" },
+        { id: 4, time: "10:30 PM", terminal: "06:00 PM", status: "scheduled" },
+        { id: 5, time: "11:30 PM", terminal: "06:00 PM", status: "scheduled" },
+        { id: 6, time: "12:30 PM", terminal: "06:00 PM", status: "scheduled" },
+        { id: 7, time: "02:00 PM", terminal: "06:00 PM", status: "scheduled" },
+        { id: 8, time: "03:00 PM", terminal: "06:00 PM", status: "scheduled" },
+        { id: 9, time: "04:00 PM", terminal: "06:00 PM", status: "scheduled" },
+        { id: 10, time: "05:00 PM", terminal: "06:00 PM", status: "scheduled" },
+        { id: 11, time: "05:45 PM", terminal: "06:00 PM", status: "scheduled" },
+        { id: 12, time: "06:30 PM", terminal: "06:00 PM", status: "scheduled" },
+        { id: 13, time: "08:00 PM", terminal: "06:00 PM", status: "scheduled" },
     ]
+
 };
 
 const ShuttleServiceScreen = () => {
     const [activeRoute, setActiveRoute] = useState("Route A");
 
     return (
-        <SafeAreaProvider style={styles.container}>
+        <View style={styles.container}>
+
             <HeaderTopAppBar
                 logo={require("../../../assets/images/Hublogo.png")}
                 profileImage={require("../../../assets/images/profile.png")}
@@ -54,7 +70,7 @@ const ShuttleServiceScreen = () => {
                         onPress={() => setActiveRoute("Route A")}
                     >
                         <Text style={[styles.text3, activeRoute === "Route A" && styles.activeTabText]}>
-                            {"Route A"}
+                            {"From Lilly A"}
                         </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
@@ -62,26 +78,17 @@ const ShuttleServiceScreen = () => {
                         onPress={() => setActiveRoute("Route B")}
                     >
                         <Text style={[styles.text4, activeRoute === "Route B" && styles.activeTabText]}>
-                            {"Route B"}
+                            {"From Main Gate"}
                         </Text>
                     </TouchableOpacity>
+
                 </View>
                 <View >
                     <View style={styles.column2}>
                         <View style={styles.column3}>
-                            <View style={styles.row2}>
-                                <Text style={styles.text5}>
-                                    {"From Lilly A"}
-                                </Text>
-                                {/* <Text style={styles.text5}>
-                                    {"STOP NAME"}
-                                </Text> */}
-                                <Text style={styles.text5}>
-                                    {"From Main Gate"}
-                                </Text>
-                            </View>
                             <View style={styles.column4}>
                                 <ScrollView nestedScrollEnabled={true} style={{ height: 380 }}>
+
                                     {shuttleData[activeRoute].map((stop, index) => {
                                         const isLast = index === shuttleData[activeRoute].length - 1;
 
@@ -92,11 +99,8 @@ const ShuttleServiceScreen = () => {
                                                         <Text style={styles.text6}>{stop.time}</Text>
                                                     </View>
                                                 </View>
-                                                <View style={styles.colDirection}>
-
-                                                    <Text style={styles.text6}>{stop.terminal}</Text>
-                                                </View>
                                             </View>
+
                                         );
                                     })}
                                 </ScrollView>
@@ -104,44 +108,41 @@ const ShuttleServiceScreen = () => {
                         </View>
                     </View>
                     <View style={styles.supportBox}>
-                        <View style={styles.row7}>
+                        <TouchableOpacity style={styles.row7} activeOpacity={0.7} onPress={() => alert("Coming Soon")}>
                             <Image
                                 source={require("../../../assets/images/needHelp.png")}
                                 resizeMode={"stretch"}
                                 style={styles.image2}
                             />
                             <View style={styles.column5}>
-                                <View style={styles.view5}>
-                                    <Text style={styles.text11}>
-                                        {"Need Help?"}
-                                    </Text>
-                                </View>
-                                <View style={styles.view6} onPress={() => alert("Coming Soon")}>
-                                    <Text style={styles.text12} onPress={() => alert("Coming Soon")}>
+                                <View style={styles.view6}>
+                                    <Text style={styles.text12}>
                                         {"Support available 24/7 for commuters."}
                                     </Text>
                                 </View>
                             </View>
-                        </View>
-                        <View style={styles.row8}>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.row8} activeOpacity={0.7} onPress={() => alert("Coming Soon")}>
                             <Image
                                 source={require("../../../assets/images/alertIcon.png")}
                                 resizeMode={"stretch"}
                                 style={styles.image3}
                             />
-                            <View >
-                                <View style={styles.view7} onPress={() => alert("Coming Soon")}>
-                                    <Text style={styles.text4} onPress={() => alert("Coming Soon")}>
+                            <View>
+                                <View style={styles.view7}>
+                                    <Text style={styles.text4}>
                                         {"Alert Subscriptions"}
                                     </Text>
                                 </View>
-                                <View style={styles.view8} onPress={() => alert("Coming Soon")}>
-                                    <Text style={styles.text13} onPress={() => alert("Coming Soon")}>
+                                <View style={styles.view8}>
+                                    <Text style={styles.text13}>
                                         {"Get notified about real-time delays."}
                                     </Text>
                                 </View>
                             </View>
-                        </View>
+                        </TouchableOpacity>
+
                     </View>
                     <View >
                         <View style={styles.column6}>
@@ -175,25 +176,34 @@ const ShuttleServiceScreen = () => {
                             resizeMode="cover"
                             style={styles.column8}
                         >
-                            <LinearGradient
-                                start={{ x: 0, y: 0 }}
-                                end={{ x: 0, y: 1 }}
-                                colors={["#7C3AEDCC", "#7C3AED4D"]}
-                                style={styles.row11} onPress={() => alert("Coming Soon")}>
-                                <Image
-                                    source={require("../../../assets/images/mapIcon.png")}
-                                    resizeMode={"stretch"}
-                                    style={styles.image6}
-                                />
-                                <Text style={styles.text3}>
-                                    {"View Full Route Map (Coming Soon)"}
-                                </Text>
-                            </LinearGradient>
+                            <TouchableOpacity
+                                onPress={() => alert("Coming Soon")}
+                                activeOpacity={0.8}
+                                style={{ borderRadius: 20, overflow: "hidden" }}
+                            >
+                                <LinearGradient
+                                    start={{ x: 0, y: 0 }}
+                                    end={{ x: 0, y: 1 }}
+                                    colors={["#7C3AEDCC", "#7C3AED4D"]}
+                                    style={styles.row11}
+                                >
+                                    <Image
+                                        source={require("../../../assets/images/mapIcon.png")}
+                                        resizeMode={"stretch"}
+                                        style={styles.image6}
+                                    />
+                                    <Text style={styles.text3}>
+                                        {"View Full Route Map (Coming Soon)"}
+                                    </Text>
+                                </LinearGradient>
+                            </TouchableOpacity>
+
                         </ImageBackground>
                     </View>
                 </View>
             </ScrollView>
-        </SafeAreaProvider>
+        </View>
+
     )
 }
 const styles = StyleSheet.create({
@@ -424,12 +434,12 @@ const styles = StyleSheet.create({
     },
     text3: {
         color: "#FFFFFF",
-        fontSize: 16,
+        fontSize: 12,
         fontWeight: "bold",
     },
     text4: {
         color: "#596063",
-        fontSize: 16,
+        fontSize: 12,
         fontWeight: "bold",
     },
     text5: {
@@ -558,9 +568,11 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         paddingVertical: 20,
         paddingHorizontal: 20,
-        gap: 95,
+
+        // gap: 95,
         borderBottomWidth: 1,
         borderBottomColor: "#F3F4F6",
+        justifyContent: "center",
     },
     colTime: {
         width: 85,
