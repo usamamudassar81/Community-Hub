@@ -1,17 +1,35 @@
 import React from "react";
-import { View, ScrollView, Text, Image, StyleSheet, ImageBackground } from "react-native";
+import { View, ScrollView, Text, Image, StyleSheet, ImageBackground, Linking, Alert, TouchableOpacity } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import HeaderTopAppBar from "../../components/header";
 import waterScheduleData from "../../../assets/data/waterSchedule.json";
 
+const sortedSchedule = [...waterScheduleData].sort((a, b) => (a.id === 0 ? 7 : a.id) - (b.id === 0 ? 7 : b.id));
+
 const WaterTimingScreen = (props) => {
 	const todayIndex = new Date().getDay();
-	const sortedSchedule = [...waterScheduleData].sort((a, b) => (a.id === 0 ? 7 : a.id) - (b.id === 0 ? 7 : b.id));
+	const todaySchedule = waterScheduleData.find(item => item.id === todayIndex);
+	const todayTimeText = todaySchedule ? todaySchedule.time : "Schedule not available";
+
+	const makeCall = async (phoneNumber) => {
+		const url = `tel:${phoneNumber}`;
+
+		const supported = await Linking.canOpenURL(url);
+
+		if (supported) {
+			await Linking.openURL(url);
+		} else {
+			Alert.alert('Error', 'Dialer is not supported on this device');
+		}
+	};
+
+
 
 	return (
 
-		<SafeAreaProvider style={styles.container}>
+		<View style={styles.container}>
+
 			<HeaderTopAppBar
 				logo={require("../../../assets/images/Hublogo.png")}
 				profileImage={require("../../../assets/images/profile.png")}
@@ -42,12 +60,13 @@ const WaterTimingScreen = (props) => {
 						/>
 						<View style={styles.column2}>
 							<Text style={styles.text2}>
-								{"Open today 8:00 AM – 11:00 AM & 4:00 PM - 8:00 PM"}
+								{`Open today ${todayTimeText}`}
 							</Text>
 							<Text style={styles.text3}>
 								{"Standard community distribution\nhours"}
 							</Text>
 						</View>
+
 					</View>
 					<View style={styles.row2}>
 						<View style={styles.box}>
@@ -98,22 +117,7 @@ const WaterTimingScreen = (props) => {
 							);
 						}
 
-						if (isSunday) {
-							return (
-								<View key={item.id} style={styles.row8}>
-									<View style={styles.view14}>
-										<Text style={styles.text11}>
-											{item.day}
-										</Text>
-									</View>
-									<View style={styles.view13}>
-										<Text style={styles.text7}>
-											{item.time}
-										</Text>
-									</View>
-								</View>
-							);
-						}
+
 
 						return (
 							<View key={item.id} style={styles.row4}>
@@ -144,50 +148,6 @@ const WaterTimingScreen = (props) => {
 					</Text>
 				</View>
 				<View style={styles.column4}>
-					<View style={styles.column5}>
-						<View style={styles.row10}>
-							<View style={styles.column6}>
-								<View style={styles.row11} onPress={() => alert("Coming Soon")}>
-									<Image
-										source={require("../../../assets/images/maintenance.png")}
-										resizeMode={"stretch"}
-										style={styles.image4}
-										onPress={() => alert("Coming Soon")}
-									/>
-									<Text style={styles.text13}
-										onPress={() => alert("Coming Soon")}
-									>
-										{"Maintenance Notice"}
-									</Text>
-								</View>
-								<View style={styles.column7}>
-									<Text style={styles.text14}
-										onPress={() => alert("Coming Soon")}
-									>
-										{"The secondary purification unit will undergo annual\ncalibration this coming Sunday. "}
-									</Text>
-									<View style={styles.row12}>
-										{/* <Text style={styles.text15}>
-											{"interruptions"}
-										</Text>
-										<Text style={styles.text3}>
-											{" are expected for residential lines."}
-										</Text> */}
-									</View>
-								</View>
-							</View>
-							<Image
-
-								resizeMode={"stretch"}
-								style={styles.image5}
-							/>
-						</View>
-						{/* <Text style={styles.text16}
-							onPress={() => alert("Coming Soon")}
-						>
-							{"Learn More"}
-						</Text > */}
-					</View>
 					<View style={styles.column8}>
 						<View style={styles.view15}>
 							<Text style={styles.text17}>
@@ -195,12 +155,15 @@ const WaterTimingScreen = (props) => {
 							</Text>
 						</View>
 						<View >
+
 							<View style={styles.row13}>
-								<Image
-									source={require("../../../assets/images/phoneIcon.png")}
-									resizeMode={"stretch"}
-									style={styles.image6}
-								/>
+								<TouchableOpacity onPress={() => makeCall('+92311-7773997')}>
+									<Image
+										source={require("../../../assets/images/phoneIcon.png")}
+										resizeMode={"stretch"}
+										style={styles.image6}
+									/>
+								</TouchableOpacity>
 								<View >
 									<View style={styles.view16}>
 										<Text style={styles.text18}>
@@ -208,31 +171,15 @@ const WaterTimingScreen = (props) => {
 										</Text>
 									</View>
 									<View style={styles.view17}>
-										<Text style={styles.text19}>
-											{"+92311-7773997"}
-										</Text>
+										<TouchableOpacity onPress={() => makeCall('+92311-7773997')}>
+											<Text style={styles.text19}>
+												{"+92311-7773997"}
+											</Text>
+										</TouchableOpacity>
 									</View>
 								</View>
 							</View>
-							{/* <View style={styles.row14}>
-								<Image
-									source={require("../../../assets/images/maintenaceIcon.png")}
-									resizeMode={"stretch"}
-									style={styles.image7}
-								/>
-								<View >
-									<View style={styles.view18}>
-										<Text style={styles.text18}>
-											{"Maintenance Team"}
-										</Text>
-									</View>
-									<View style={styles.view19}>
-										<Text style={styles.text19}>
-											{"Updating Soon"}
-										</Text>
-									</View>
-								</View>
-							</View> */}
+
 						</View>
 					</View>
 					<View style={styles.row15}>
@@ -249,7 +196,8 @@ const WaterTimingScreen = (props) => {
 					</View>
 				</View>
 			</ScrollView>
-		</SafeAreaProvider>
+		</View>
+
 	)
 }
 const styles = StyleSheet.create({
