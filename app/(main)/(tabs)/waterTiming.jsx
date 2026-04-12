@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, Text, Image, StyleSheet, ImageBackground } from "react-native";
+import { View, ScrollView, Text, Image, StyleSheet, ImageBackground, Linking, Alert, TouchableOpacity } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import HeaderTopAppBar from "../../components/header";
@@ -8,6 +8,19 @@ import waterScheduleData from "../../../assets/data/waterSchedule.json";
 const WaterTimingScreen = (props) => {
 	const todayIndex = new Date().getDay();
 	const sortedSchedule = [...waterScheduleData].sort((a, b) => (a.id === 0 ? 7 : a.id) - (b.id === 0 ? 7 : b.id));
+	const makeCall = async (phoneNumber) => {
+		const url = `tel:${phoneNumber}`;
+
+		const supported = await Linking.canOpenURL(url);
+
+		if (supported) {
+			await Linking.openURL(url);
+		} else {
+			Alert.alert('Error', 'Dialer is not supported on this device');
+		}
+	};
+
+
 
 	return (
 
@@ -195,12 +208,15 @@ const WaterTimingScreen = (props) => {
 							</Text>
 						</View>
 						<View >
+
 							<View style={styles.row13}>
-								<Image
-									source={require("../../../assets/images/phoneIcon.png")}
-									resizeMode={"stretch"}
-									style={styles.image6}
-								/>
+								<TouchableOpacity onPress={() => makeCall('+92311-7773997')}>
+									<Image
+										source={require("../../../assets/images/phoneIcon.png")}
+										resizeMode={"stretch"}
+										style={styles.image6}
+									/>
+								</TouchableOpacity>
 								<View >
 									<View style={styles.view16}>
 										<Text style={styles.text18}>
@@ -208,9 +224,11 @@ const WaterTimingScreen = (props) => {
 										</Text>
 									</View>
 									<View style={styles.view17}>
-										<Text style={styles.text19}>
-											{"+92311-7773997"}
-										</Text>
+										<TouchableOpacity onPress={() => makeCall('+92311-7773997')}>
+											<Text style={styles.text19}>
+												{"+92311-7773997"}
+											</Text>
+										</TouchableOpacity>
 									</View>
 								</View>
 							</View>
