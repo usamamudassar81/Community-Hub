@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     },
     profileCard: {
         backgroundColor: '#FEE2E2BB', // Soft pink/red tint
-        borderRadius: 24,
+        borderRadius: 25,
         padding: 20,
         marginBottom: 32,
     },
