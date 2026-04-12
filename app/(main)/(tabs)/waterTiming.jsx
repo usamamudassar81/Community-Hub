@@ -98,22 +98,22 @@ const WaterTimingScreen = (props) => {
 							);
 						}
 
-						if (isSunday) {
-							return (
-								<View key={item.id} style={styles.row8}>
-									<View style={styles.view14}>
-										<Text style={styles.text11}>
-											{item.day}
-										</Text>
-									</View>
-									<View style={styles.view13}>
-										<Text style={styles.text7}>
-											{item.time}
-										</Text>
-									</View>
-								</View>
-							);
-						}
+						// if (isSunday) {
+						// 	return (
+						// 		<View key={item.id} style={styles.row8}>
+						// 			<View style={styles.view14}>
+						// 				<Text style={styles.text11}>
+						// 					{item.day}
+						// 				</Text>
+						// 			</View>
+						// 			<View style={styles.view13}>
+						// 				<Text style={styles.text7}>
+						// 					{item.time}
+						// 				</Text>
+						// 			</View>
+						// 		</View>
+						// 	);
+						// }
 
 						return (
 							<View key={item.id} style={styles.row4}>
@@ -144,7 +144,7 @@ const WaterTimingScreen = (props) => {
 					</Text>
 				</View>
 				<View style={styles.column4}>
-					<View style={styles.column5}>
+					{/* <View style={styles.column5}>
 						<View style={styles.row10}>
 							<View style={styles.column6}>
 								<View style={styles.row11} onPress={() => alert("Coming Soon")}>
@@ -167,12 +167,12 @@ const WaterTimingScreen = (props) => {
 										{"The secondary purification unit will undergo annual\ncalibration this coming Sunday. "}
 									</Text>
 									<View style={styles.row12}>
-										{/* <Text style={styles.text15}>
+										<Text style={styles.text15}>
 											{"interruptions"}
 										</Text>
 										<Text style={styles.text3}>
 											{" are expected for residential lines."}
-										</Text> */}
+										</Text>
 									</View>
 								</View>
 							</View>
@@ -182,12 +182,12 @@ const WaterTimingScreen = (props) => {
 								style={styles.image5}
 							/>
 						</View>
-						{/* <Text style={styles.text16}
+						<Text style={styles.text16}
 							onPress={() => alert("Coming Soon")}
 						>
 							{"Learn More"}
-						</Text > */}
-					</View>
+						</Text >
+					</View> */}
 					<View style={styles.column8}>
 						<View style={styles.view15}>
 							<Text style={styles.text17}>
